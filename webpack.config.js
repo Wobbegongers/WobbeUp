@@ -32,9 +32,12 @@ module.exports = {
     ]
   },
 
-  // devServer: {
-  //   publicPath: "/build/"
-  // },
+  devServer: {
+    // publicPath: "/build/"
+    proxy: {
+      '/socket.io' : 'http://localhost:3000'
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './client/public/index.html'

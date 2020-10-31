@@ -5,6 +5,10 @@ const cors = require('cors')
 const path = require('path')
 // allows for the use of body on a request
 const bodyparser = require('body-parser')
+const http = require('http')
+const server =  http.createServer(app)
+const socketio = require('socket.io')
+const io = socketio(server)
 
 // allows us to read json
 app.use(express.json())
@@ -15,7 +19,13 @@ app.use(bodyparser.urlencoded({extended:true}))
 // render static index.html file
 app.use(express.static(path.join(__dirname, '../client/public')))
 
+io.on('connection', socket =>{
+  console.log('New user has joined')
 
+  socket.on('disconnect', ()=>{
+    console.log("user has left")
+  })
+})
 
 app.get('/', (req,res) =>{
     res.sendFile(path.join(__dirname,'../client/public/index.html'))
@@ -37,7 +47,7 @@ app.use((err, req, res, next) => {
 
 
 // server listens on port 3000
-app.listen(3000, (err, result) =>{
+server.listen(3000, (err, result) =>{
     console.log("listening on port 3000")
 });
 
