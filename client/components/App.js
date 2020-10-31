@@ -3,6 +3,7 @@ import Listing from '../components/Listing'
 import CreateListing from './CreateListing';
 import Home from '../containers/Home'
 import Card from '../components/Card'
+import Chat from '../components/Chat'
 import {BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Nav from './Nav';
 
@@ -22,6 +23,8 @@ export default class App extends Component {
             <Route path="/listing/:id" component={Card}/>
 
             <Route path="/create" component={CreateListing}/>
+
+            <Route path="/chat" component={Chat}/>
 
             <CreateButton/>
         </div>
