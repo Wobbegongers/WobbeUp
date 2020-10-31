@@ -7,14 +7,18 @@
   display: grid;
   background: white;
   grid-template-rows: auto 1fr auto;
+  height: 92%;
+}
+.page {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
 }
 
 .navBar {
   background: black;
   display: flex;
-  //padding: 1em 0em;
-  // width: 100vw;
+  height: 8%;
 }
 
 .navBar ul {
