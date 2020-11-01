@@ -34,7 +34,6 @@ const Chat = () =>{
 
         })
 
-        console.log("socketsss", socket)
         return () =>{
             console.log('exiting')
             socket.emit('disconnect')
@@ -45,33 +44,30 @@ const Chat = () =>{
 
     // whenever the array of messages change, then update the state 
     useEffect(() =>{
-        console.log("inside first use effect socketsss", socket)
+        // console.log("inside first use effect socketsss", socket)
         socket.on('message',message =>{
-            console.log('did we do something')
             setMessages([...messages, message])
         })
-    })
+    },[messages])
     
 
     // sends the message to the server
     const onSend = (incoming_message) => {
-        console.log('socket id ')
-        console.log(socket.id)
-        console.log(incoming_message)
 
         // sends the message to the socket server and resets the message
         socket.emit('sendMessage', incoming_message, () => setMessage(''))
+
+        console.log('did it')
     }
 
     console.log(message, messages)
     return(
         <div>
-            <Messages/>
+            <Messages messageArray ={messages}/>
             <ChatInput onSend ={onSend}/>
         </div>
     )
 }
 
-// http://localhost:3000/socket.io/?EIO=3&transport=polling&t=NM0gq5O
 
 export default Chat
