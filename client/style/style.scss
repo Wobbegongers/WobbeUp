@@ -16,13 +16,13 @@
 }
 
 .navBar {
-  background: black;
+  background: rgb(125, 101, 101);
   display: flex;
   height: 8%;
 }
 
 .navBar ul {
-  background: #2f363d;
+  background: #8ea2ba;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -30,7 +30,7 @@
   list-style: none;
 }
 .navBar ul li {
-  color: #6b0461;
+  color: white;
 }
 
 .main {
@@ -67,7 +67,7 @@
   z-index: 1;
 }
 .dropdown-content a {
-  color: black;
+  color: rgb(179, 97, 97);
   padding: 0.75em 1em;
   text-decoration: none;
   display: block;
@@ -77,5 +77,5 @@
   display: block;
 }
 .dropdown-content a:hover {
-  background-color: #6b0461;
+  background-color: #82617e;
 }
