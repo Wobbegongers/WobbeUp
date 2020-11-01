@@ -47,8 +47,12 @@ io.on('connection', socket =>{
   })
 
   socket.on('sendMessage', (message, callback) => {
+    // looks for the user within the stored users
     const user = socketController.getUser(socket.id)
 
+    console.log('we did the message thing')
+    console.log('user room', user.room)
+    // sends the chat message to the chat room 
     io.to(user.room).emit('message', {user: user.name, text: message})
 
 
