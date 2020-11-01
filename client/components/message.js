@@ -1,16 +1,42 @@
 import React from 'react';
 
 const Message = (props) => {
-    
+    console.log('inside emssages')
+    console.log(props.message)
+    console.log(props.user)
     return ( 
-        <div className={`message`}>
-            <div className="messsage-username">
+        // replace billy with user to see how to style the messages
+        // if the user name is the same then the message will go on the right 
+        // if the user name is not the same then the message will go on the left
+        props.user === 'billy' 
+
+        ?
+
+        <div className='same-user'>
+            {/* <div className="messsage-username">
                 username
             </div>
             <div className="message-body">
                 Message
-            </div>
+            </div> */}
+            
+            {props.message}
         </div>
+
+        :
+
+        <div className='diff-user'>
+            {/* <div className="messsage-username">
+                username
+            </div>
+            <div className="message-body">
+                Message
+            </div> */}
+            
+            {props.message}
+        </div>
+
+
      );
 }
  

@@ -24,6 +24,7 @@ const ChatInput = (props) => {
             name='input'
             value={values.input}
             placeholder="Send a message..."
+            id = 'textInput'
             />
         </form>
     );
