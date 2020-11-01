@@ -28,12 +28,12 @@ io.on('connection', socket =>{
 
 
   socket.on('join', ({name,room}, callback)=>{
-    console.log(name,room)
+    // console.log(name,room)
 
     // adds the user to the socket middleware handler to keep track of the user and returns the user in the format in the socket server
     const {user} = socketController.addUser({id: socket.id, name, room})
 
-    console.log(user)
+    // console.log(user)
 
     // sends a message when someone logs into the room
     socket.emit('message', {user: 'admin', text: `${user.name} welcome to the room ${user.room}`})
@@ -52,8 +52,8 @@ io.on('connection', socket =>{
     // looks for the user within the stored users
     const user = socketController.getUser(socket.id)
 
-    console.log('we did the message thing')
-    console.log('user room', user.room)
+    // console.log('we did the message thing')
+    // console.log('user room', user.room)
     // sends the chat message to the chat room 
     io.to(user.room).emit('message', {user: user.name, text: message})
 
@@ -88,7 +88,7 @@ app.use((err, req, res, next) => {
       message: { err: 'An error occurred' },
     };
     const errorObj = Object.assign({}, defaultErr, err);
-    console.log(errorObj.log);
+    // console.log(errorObj.log);
     return res.status(errorObj.status).json(errorObj.message);
   });
 

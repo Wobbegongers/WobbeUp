@@ -6,9 +6,11 @@ const initialInputValue = {
 
 const ChatInput = (props) => {
     const [values , setValues] = useState (initialInputValue)
+
     const handleSubmit = (e) =>{
         e.preventDefault();
         props.onSend(values.input)
+        setValues(initialInputValue)
     }
     const handleChange = (e) =>{
         const {name, value} = e.target;

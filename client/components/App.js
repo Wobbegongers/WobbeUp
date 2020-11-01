@@ -4,7 +4,7 @@ import CreateListing from './CreateListing';
 import Home from '../containers/Home'
 import Card from '../components/Card'
 import Chat from '../components/Chat'
-import {BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './Nav';
 import Image from '../components/Image'
 
@@ -21,7 +21,7 @@ export default class App extends Component {
 
             <Route path="/listing" component={Listing}/>
 
-            <Route path="/monkeyboner/:id" component={Card}/>
+            <Route path="/item/:id" component={Card}/>
 
             <Route path="/create" component={CreateListing}/>
 
@@ -30,7 +30,7 @@ export default class App extends Component {
             <Route path = '/image' component = {Image}/>
 
             <CreateButton/>
-        </div>
+          </div>
       </Router>
     )
   }

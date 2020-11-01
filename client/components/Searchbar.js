@@ -2,14 +2,14 @@ import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
 // import Listing from './Listing';
 const initialSearchInput = {
-    searchValue : ''
+    searchValue : '',
+    category:'All'
 }
 const Searchbar = (props) => {
-    const [category,setCategory] = useState('Category')
+    // const [category,setCategory] = useState('Category')
     const [searchInput, setSearchInput] = useState(initialSearchInput);
     const handleClick = (e) =>{
-        console.log(e.target.outerText)
-        setCategory(e.target.outerText);
+        console.log(e.target)
     }
 
     const handleSearchInput = (e) =>{
@@ -19,18 +19,19 @@ const Searchbar = (props) => {
             ...searchInput,
             [name]: value
         })
-        // console.log(value)
     }
+    console.log(searchInput)
     return ( 
 
         <div className="search">
-            <div className="dropdown">  
-                <div className="category">{category}</div>
-                <div className="dropdown-content">
-                    <a onClick={handleClick} value='Automobile'>Automobile</a><br/>
-                    <a onClick={handleClick} value='Electronics'>Electronics</a><br/>   
-                    <a onClick={handleClick} value="Toys">Toys</a>
-                </div>
+            <div className="dropdown"> 
+                <select name='category' onChange={handleSearchInput} value={searchInput.category} >
+                    <option value='All'>All</option>
+                    <option value='Automobile'>Automobile</option>
+                    <option value='Electronics'>Electronics</option>
+                    <option value='Video Games'>Video Games</option>
+                    <option value='Others'>Others</option>
+                </select>
             </div>
             <div className="search-box">
                 <input className='searchInput-box'
@@ -39,7 +40,7 @@ const Searchbar = (props) => {
                 placeholder='Wobbe are you looking for?'
                 onChange={handleSearchInput} />
             </div>
-            <Link className="wobbe-up" to='/listing'/*onClick={handleSearch}*/>Wobbe Up!</Link>
+            <Link className="wobbe-up" to='/listing'/*onClick={handleSearch}*/><button>Wobbe Up!</button></Link>
         </div> 
 
 

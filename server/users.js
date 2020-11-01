@@ -11,7 +11,7 @@ socketController.addUser = ({id, name, room}) =>{
 
     users.push(user)
 
-    console.log("Users" , users)
+    // console.log("Users" , users)
     return {user}
     
 }

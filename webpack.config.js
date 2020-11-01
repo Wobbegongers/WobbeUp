@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
@@ -41,7 +41,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './client/public/index.html'
+      template: './client/public/index.html',
+      favicons: './client/public/logo.png'
     })
   ]
 }
