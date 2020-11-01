@@ -6,6 +6,7 @@ import Card from '../components/Card'
 import Chat from '../components/Chat'
 import {BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Nav from './Nav';
+import Image from '../components/Image'
 
 import CreateButton from './CreateButton';
 
@@ -25,6 +26,8 @@ export default class App extends Component {
             <Route path="/create" component={CreateListing}/>
 
             <Route path="/chat" component={Chat}/>
+
+            <Route path = '/image' component = {Image}/>
 
             <CreateButton/>
         </div>
