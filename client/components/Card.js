@@ -3,7 +3,11 @@ import React from 'react';
 const Card = () => {
     return ( 
         <div>
-            CARD LISTING
+            <ul>
+                <li>Item: </li>
+                <li>Price: </li>
+                <li>Description: </li>
+            </ul>
         </div>    
     );
 }

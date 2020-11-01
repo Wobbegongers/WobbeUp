@@ -20,7 +20,7 @@ export default class App extends Component {
 
             <Route path="/listing" component={Listing}/>
 
-            <Route path="/listing/:id" component={Card}/>
+            <Route path="/monkeyboner/:id" component={Card}/>
 
             <Route path="/create" component={CreateListing}/>
 
