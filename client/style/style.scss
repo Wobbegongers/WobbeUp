@@ -79,3 +79,25 @@
 .dropdown-content a:hover {
   background-color: #6b0461;
 }
+
+.messages {
+  display: flex; 
+  position: relative;
+  flex-direction: column;
+  height: 250px;
+  width :200px;
+  background-color: aqua;
+}
+
+.same-user{
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+  right: 0;
+}
+
+.diff-user{
+  display: flex;
+  text-align: left;
+  left: 0;
+}
