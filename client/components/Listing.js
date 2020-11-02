@@ -1,13 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CardList from './CardList';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions'
-
 const url = 'http://localhost:3000/'
-
 /**
  * name: audi a7
  * category : car
@@ -15,7 +12,6 @@ const url = 'http://localhost:3000/'
 const Listing = (props) => {
   //create and array of cards
   const [library, setLibrary] = useState([]);
-
   useEffect(() => {
     // console.log(props.search)
     if (props.search.searchValue && props.search.category === 'All') {
@@ -53,45 +49,28 @@ const Listing = (props) => {
           console.log(err)
         })
     }
-  })
-    .then(res => {
-      console.log(res.data)
-      setLibrary(res.data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-}
     else {
-  axios.get(url + 'listing/all')
-    .then(res => {
-      console.log(res.data)
-      setLibrary(res.data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-}
+      axios.get(url + 'listing/all')
+        .then(res => {
+          console.log(res.data)
+          setLibrary(res.data)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
   }, [])
-
-const cardList = library.map((el, index) => {
-  return <CardList key={index} {...el} />
-})
-
-return (
-  <div>
-    {cardList}
-  </div>
-);
+  const cardList = library.map((el, index) => {
+    return <CardList key={index} {...el} />
+  })
+  return (
+    <div>
+      {cardList}
+    </div>
+  );
 }
-
 const mapStateToProps = (state) => ({
-<<<<<<< HEAD
-  search: state.wobbeReducer.search
-=======
-    search : state.wobbeReducer.search,
-    user_id : state.wobbeReducer.user_id
->>>>>>> 769504afc235223aa3348b86eb6c919d53b8fbf0
+  search: state.wobbeReducer.search,
+  user_id: state.wobbeReducer.user_id
 })
-
 export default connect(mapStateToProps)(Listing);
