@@ -9,38 +9,41 @@ import Nav from './Nav';
 import Image from '../components/Image'
 import Footer from '../containers/Footer'
 import Signup from '../components/Signup'
-
-import CreateButton from './CreateButton';
+import {connect} from 'react-redux';
 import Login from './Login';
 
+const App = (props) => {
+  return (
+    <Router>
+        <div className="page">
+          <Nav/>
+          
+          <Route path='/login' component ={Login}/>
+          
+          <Route path='/signup' component ={Signup}/>
+    
+          <Route path="/" exact component={Home}/>
 
-export default class App extends Component {
-  render() {
-    return (
-      <Router>
-          <div className="page">
-            <Nav/>
-            <Route path="/" exact component={Home}/>
+          <Route path="/listing" component={Listing}/>
 
-            <Route path="/listing" component={Listing}/>
+          <Route path="/item/:id" component={Card}
+          />
 
-            <Route path="/item/:id" component={Card}
-            />
+          <Route path="/create" component={CreateListing}/>
 
-            <Route path="/create" component={CreateListing}/>
+          <Route path="/chat" component={Chat}/>
 
-            <Route path="/chat" component={Chat}/>
+          <Route path = '/image' component = {Image}/>
 
-            <Route path = '/image' component = {Image}/>
-            
-            <Route path='/login' component ={Login}/>
-            
-            <Route path='/signup' component ={Signup}/>
-
-
-            <Footer/>
-          </div>
-      </Router>
-    )
-  }
+          <Footer/>
+        </div>
+    </Router>
+  ) ;
 }
+
+const mapStateToProps = (state) =>({
+  username: state.wobbeReducer.username
+})
+
+export default connect(mapStateToProps)(App);
+

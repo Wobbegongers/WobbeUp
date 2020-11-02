@@ -32,6 +32,9 @@ router.post('/signup', userController.addUser, (req,res) => {
     res.send()
 })
 
+router.get('/finduser', userController.findUser, (req,res) =>{
+    res.json(res.locals.user)
+})
 
 
 module.exports = router;

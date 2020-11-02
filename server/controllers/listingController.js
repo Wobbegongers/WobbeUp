@@ -4,7 +4,9 @@ const listingController = {};
 listingController.addListing = (req,res,next) =>{
     // inserts new user using the locationid grabbed from first two queries
     let query = `insert into listings (name, price, user_id, location, category_id, description) values ($1, $2, $3, $4, $5, $6);`
-    let params = [req.body.name, req.body.price, req.body.user_id, req.body.location, req.body.category_id, description]
+    console.log('body: ', req.body)
+    console.log('query: ', req.query)
+    let params = [req.body.name, req.body.price, req.body.user_id, req.body.location, req.body.category_id, req.body.description]
 
     db.query(query, params, (err, result)=>{
         if(err){

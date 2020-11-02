@@ -44,8 +44,6 @@ const Login = (props) => {
         window.alert('Incorrect Username and/or Password!!!')
         setLoginInfo(initialLoginState)
       }
-    //   window.alert('Incorrect Username and/or Password.')
-    //   setLoginInfo(initialLoginState)
     }).catch(err => {
        console.log(err)
     });

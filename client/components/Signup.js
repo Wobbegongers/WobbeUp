@@ -3,6 +3,7 @@ import logo from '../public/WobbeUp.png';
 import axios from 'axios';
 import {connect} from 'react-redux'
 import * as actions from '../actions/actions'
+import {Redirect} from 'react-router-dom'
 
 const initialSignupState = {
   real_name:'',
@@ -14,12 +15,26 @@ const initialSignupState = {
 const url = 'http://localhost:3000/'
 
 const Signup = (props) => {
-
   const [signupInfo, setSignupInfo] = useState(initialSignupState);
+  const [infoFromDB, setInfoFromDB] = useState({})
+  const [redirect, setRedirect] = useState(false);
+  
+  const handleRedirect = () =>{
+    axios.get(url+'account/finduser', {
+      params:{
+      username: signupInfo.username,
+      location: signupInfo.location
+    }
+    }).then(res=>{
+      // console.log(res)
+      setInfoFromDB(res.data)
+      console.log(res.data)
+      setRedirect(true);
+    }).catch(err => console.log(err)) 
+  }
 
   const updateInfo = (e) => {
     const {name, value} = e.target
-    // console.log(e.target)
     setSignupInfo({
       ...signupInfo,
       [name] : value
@@ -39,11 +54,14 @@ const Signup = (props) => {
     })
     .then(response => {
       console.log('res ', response);
-      props.setUsername(signupInfo.real_name)
-    }).catch(err => console.log(err))
+      props.setUsername(signupInfo.username)
+    })
+    .then(()=> handleRedirect())
+    .catch(err => console.log(err))
   }
 
   return (
+    redirect === false ? 
     <div className='signup-container'>
       <div className='signup-logo-container'>
         {/* <img className="signup-logo" src={logo}></img> */}
@@ -88,6 +106,13 @@ const Signup = (props) => {
             />
       </form>
     </div>
+    :
+    <Redirect 
+      to={{
+        pathname: '/',
+        state: infoFromDB
+    }}
+    />
   )
 }
 

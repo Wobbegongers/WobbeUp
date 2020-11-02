@@ -11,7 +11,7 @@ const Card = (props) => {
     return ( 
         <div className='card-lising-div'>
             <div className='card-listing-seller'>
-                Name: Ali H
+                Seller: Ali H
             </div>
             <ul>
                 <li>Item: {props.item.name} </li>

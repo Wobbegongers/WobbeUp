@@ -2,6 +2,8 @@ import {ACTION_TYPES} from '../actions/actions'
 
 const initialState = {
     username: '',
+    location: '',
+    user_id: '',
     list : [],
     item : {},
     search : {}
@@ -28,6 +30,16 @@ export const wobbeReducer = (state = initialState, action) =>{
             return{
                 ...state,
                 search:{...action.payload}
+            }
+        case ACTION_TYPES.SET_ID:
+            return{
+                ...state,
+                user_id : action.payload
+            }
+        case ACTION_TYPES.SET_LOCATION:
+            return{
+                ...state,
+                location : action.payload
             }
             
         default:

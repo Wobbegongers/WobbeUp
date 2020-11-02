@@ -188,14 +188,6 @@ option {
   color: $secondary;
 }
 
-//CREATE LISTING
-
-.create-listing-container {
-  background: $primarybg;
-  display: flex;
-  margin-top: 15em;
-}
-
 //LOGIN PAGE
 .login-logo {
   height: auto;
@@ -216,6 +208,7 @@ signup-logo {
   width: 450px;
   bottom: 60px;
   right: 0px;
+  margin-right: 0.5em;
 }
 
 .messages {
@@ -223,7 +216,7 @@ signup-logo {
   flex-direction: column;
   padding: 10px;
   height: 250px;
-  width: 100%;
+  width: 95%;
   color: white;
   overflow: scroll;
 }
@@ -247,12 +240,11 @@ signup-logo {
   background: $tertiary;
   display: flex;
   flex-wrap: wrap;
-  // right: 0px;
   padding: 10px;
   margin-left: 195px;
-  width: 50%;
   margin-bottom: 5px;
   border-radius: 10px;
+  width: 50%;
 }
 
 .diff-user {
@@ -263,4 +255,57 @@ signup-logo {
   width: 50%;
   margin-bottom: 5px;
   border-radius: 10px;
+}
+
+//CREATE LISTING PAGE
+.create-listing-container {
+  border: 1px solid red;
+  // background: $primarybg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20em;
+  height: 25em;
+  margin: 15em auto auto auto;
+}
+
+.itemform {
+  border: 1px solid purple;
+}
+
+.itemname {
+  margin-bottom: 1em;
+  border: 1px solid blue;
+}
+
+.listinglabel {
+  display: inline-block;
+  float: left;
+  border: 1px solid black;
+  width: 120px;
+  text-align: left;
+}
+
+.listinginput {
+  display: inline-block;
+  float: right;
+}
+
+.item-dropdown {
+  margin-bottom: 1em;
+  display: inline-block;
+  justify-content: right;
+}
+
+.itemprice {
+  margin-bottom: 1em;
+  border: 1px solid green;
+}
+
+.itemdescrip {
+  margin-bottom: 1em;
+  border: 1px solid yellow;
+}
+
+.itemsubmit {
 }

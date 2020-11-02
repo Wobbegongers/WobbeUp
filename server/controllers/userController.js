@@ -38,12 +38,30 @@ userController.addUser = (req,res,next) =>{
             next()
         }
         else{
+            console.log('added user')
             console.log(result)
             next()
         }
     })
 }
 
+userController.findUser = (req,res,next) =>{
+    // console.log('info', req)
+    let query = 'select * from users where username = $1 and location = $2;'
+    let params =  [req.query.username, req.query.location]
+
+    db.query(query, params, (err, result) =>{
+        if(err){
+            console.log(err)
+            next()
+        }
+        else{
+            //console.log('results' ,result)
+            res.locals.user = result.rows[0]
+            next()
+        }
+    })
+}
 
 
 
