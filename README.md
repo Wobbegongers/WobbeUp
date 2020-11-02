@@ -5,7 +5,6 @@
 ## Motivation
 The problem that we at Wobbegongers have always wrestled with is the issue of communication between people on P2P (person to person) listing sites. Usually communication between two parties is dificult because you usually don't want to provide the other indivudual with your private information and the solution employed by these sites are clunky and sus third party emails. So we would would like to suggest Wobbe Up for all your listing and sale needs. A secure P2P site where communication is direct and instant between parties. Every listing that you create or checkout has an IM box where you as a client or vendor can commuicate directly all organized within the listings you own or visit. With Oauth from trust parties you can feel secure that the people you deal with have been verified and any communication between you and any other party is secure and private with end to end encription. As our CEO likes to say:
 > Selling who knows what to God knows who
->  _Wobbegongers CEO_
 
 ## Build Status
 
@@ -17,9 +16,9 @@ The problem that we at Wobbegongers have always wrestled with is the issue of co
 5. Display listings, individual listing, and IM within individual listing
   
 * Setup postgresSQL
-  - [x]Creat usertable, listing table
+  - [x] Creat usertable, listing table
 * Communication between server and backend
-  - [x]connect to DB with npm pg 
+  - [x] connect to DB with npm pg 
 * User CRUD capabilities 
   - [x] Create user
   - [x] Read user
@@ -32,10 +31,13 @@ The problem that we at Wobbegongers have always wrestled with is the issue of co
   - [ ] Delete listing
 * Communication between server and client
   * Axios request to server
-  - [x]Login
-  - [x]Signup
-  - [x]Send a search request and retirve a listing of result
-  - [ ]
+  - [x] Login
+  - [x] Signup
+  - [x] Send a search request and retirve a listing of result
+  - [x] Create a listing
+  - [ ] Delete a listing
+  - [ ] Update a listing 
+
 * Socket IO instant messaging
   - [x] have the chat box located within indiviual listings
   - [x] set up Socket IO proxy server
