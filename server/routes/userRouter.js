@@ -13,7 +13,7 @@ router.get('/login', userController.login, (req, res) => {
     if(res.locals.found){
         console.log('finished login')
         res.status(200)
-        res.send()
+        res.json(res.locals.user)
     }
     else{
         console.log('failed login')

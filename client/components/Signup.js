@@ -26,9 +26,7 @@ const Signup = (props) => {
       location: signupInfo.location
     }
     }).then(res=>{
-      // console.log(res)
       setInfoFromDB(res.data)
-      console.log(res.data)
       setRedirect(true);
     }).catch(err => console.log(err)) 
   }
@@ -39,7 +37,6 @@ const Signup = (props) => {
       ...signupInfo,
       [name] : value
     })
-    console.log(signupInfo)
   }
 
   const submitSignup = (e) =>{
@@ -53,7 +50,6 @@ const Signup = (props) => {
       }
     })
     .then(response => {
-      console.log('res ', response);
       props.setUsername(signupInfo.username)
     })
     .then(()=> handleRedirect())
@@ -119,7 +115,7 @@ const Signup = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  username: state.wobbeReducer.username,
+  username: state.wobbeReducer.username
 })
 
 const mapActionToProps = {

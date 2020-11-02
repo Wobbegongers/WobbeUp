@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import logo from '../public/WobbeUp.png';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 const initialLoginState = {
   username: '',
@@ -18,14 +19,14 @@ const url = 'http://localhost:3000/'
 
 const Login = (props) => {
   const [loginInfo, setLoginInfo] = useState(initialLoginState);
-
+  const [infoFromDB, setInfoFromDB] = useState({})
+  const [redirect, setRedirect] = useState(false);
   const updateInfo = (e) => {
     const {name, value} = e.target
     setLoginInfo({
       ...loginInfo,
       [name] : value
     })
-    console.log(loginInfo)
   }
 
   const submitLogin = (e) =>{
@@ -40,7 +41,9 @@ const Login = (props) => {
     .then(response => {
       console.log(response);
       if(response.status === 200){
-        console.log('access granted')
+        console.log('res: ', response.data);
+        setInfoFromDB(response.data);
+        setRedirect(true);
       }else {
         window.alert('Incorrect Username and/or Password!!!')
         setLoginInfo(initialLoginState)
@@ -48,11 +51,11 @@ const Login = (props) => {
     }).catch(err => {
        console.log(err)
     });
-    //....
   }
 
 
     return (
+      redirect === false ?
       <div className='login-container'>
           <div className='loginLogo'>
             <img className="login-logo" src={logo}></img>
@@ -86,6 +89,13 @@ const Login = (props) => {
           </form>
         </div>
       </div>
+      :
+      <Redirect 
+      to={{
+        pathname: '/',
+        state: infoFromDB
+    }}
+    />
     );
 }
  
