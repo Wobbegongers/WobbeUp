@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import Cardlist from './CardList'
+import CardList from './CardList'
 import axios from 'axios';
 import { connect } from 'react-redux'
 
 const url = 'http://localhost:3000/'
+
+const mapStateToProps = (state) => ({
+  user_id: state.wobbeReducer.user_id
+})
+
 
 const Profile = (props) => {
 
   const [userListing, setUserListing] = useState([]);
 
   useEffect(() => {
-    axios.get(url + '/listing/userItems', {
+    console.log("Profile Props:", props)
+    axios.get(url + 'listing/userItems', {
       params: {
         user_id: props.user_id
       }
@@ -34,4 +40,4 @@ const Profile = (props) => {
 };
 
 
-export default Profile; 
+export default connect(mapStateToProps)(Profile); 
