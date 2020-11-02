@@ -2,6 +2,7 @@ import React,{useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import * as actions from "../actions/actions"
 import {connect} from 'react-redux';
+import numeral from 'numeral';
 
 
 const CardList = (props) => {
@@ -10,16 +11,16 @@ const CardList = (props) => {
       }
     
     const handleClick =(e) =>{
-        console.log(props)
+        // console.log(props)
         props.setItem(props)
     }
 
     return ( 
         <div className='CardList'>
             <ul>
-                <li>Name: User Name</li>
+                <li>Name: {props.username}</li>
                 <li>item: {(props.name)}</li>
-                <li>Price : {props.price}</li>
+                <li>Price : ${numeral(props.price).format('0,0')}</li>
                 <li>Location {(props.location)}</li>
             </ul>
             <button onClick={handleClick}><Link to={`/item/${props.name}`} > button </Link> </button>
@@ -28,7 +29,8 @@ const CardList = (props) => {
 }
 
 const mapStateToProps = (state) =>({
-    item : state.wobbeReducer.item
+    item : state.wobbeReducer.item,
+    
 })
 
 const mapActionToProps = {

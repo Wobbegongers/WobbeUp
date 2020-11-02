@@ -17,12 +17,15 @@ const Listing = (props) => {
     const [library, setLibrary] = useState([]);
 
     useEffect(()=>{
-        console.log(props.search)
+        // console.log(props.search)
         if(props.search.searchValue && props.search.category ==='All')
         {
             console.log('here i am')
+            // console.log(props.search)
+            console.log(props.user_id)
             axios.get(url+'listing/searchall',{ params: {
                 name: props.search.searchValue.toLowerCase().trim(),
+                user_id : props.user_id
             }})
             .then(res =>{
                 console.log('res:', res.data)
@@ -36,7 +39,8 @@ const Listing = (props) => {
             console.log('here i am 2')
             axios.get(url+'listing/search', {params: {
                 name: props.search.searchValue.toLowerCase().trim(),
-                category_id : props.search.category
+                category_id : props.search.category,
+                user_id : props.user_id
             }})
             .then(res =>{
                 console.log(res.data)
@@ -70,7 +74,8 @@ const Listing = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    search : state.wobbeReducer.search
+    search : state.wobbeReducer.search,
+    user_id : state.wobbeReducer.user_id
 })
 
 export default connect(mapStateToProps)(Listing);
