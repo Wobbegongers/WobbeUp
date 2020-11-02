@@ -1,10 +1,10 @@
 
-import React,{useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import CardList from './CardList';
 import axios from 'axios';
-import {connect} from 'react-redux';
-import * as actions  from '../actions/actions'
+import { connect } from 'react-redux';
+import * as actions from '../actions/actions'
 
 const url = 'http://localhost:3000/'
 
@@ -13,64 +13,67 @@ const url = 'http://localhost:3000/'
  * category : car
  */
 const Listing = (props) => {
-    //create and array of cards
-    const [library, setLibrary] = useState([]);
+  //create and array of cards
+  const [library, setLibrary] = useState([]);
 
-    useEffect(()=>{
-        console.log(props.search)
-        if(props.search.searchValue && props.search.category ==='All')
-        {
-            console.log('here i am')
-            axios.get(url+'listing/searchall',{ params: {
-                name: props.search.searchValue.toLowerCase().trim(),
-            }})
-            .then(res =>{
-                console.log('res:', res.data)
-                setLibrary(res.data)
-            })
-            .catch(err =>{
-                console.log(err)
-            })
+  useEffect(() => {
+    console.log(props.search)
+    if (props.search.searchValue && props.search.category === 'All') {
+      console.log('here i am')
+      axios.get(url + 'listing/searchall', {
+        params: {
+          name: props.search.searchValue.toLowerCase().trim(),
         }
-        else if(props.search.searchValue && props.search.category !=='All'){
-            console.log('here i am 2')
-            axios.get(url+'listing/search', {params: {
-                name: props.search.searchValue.toLowerCase().trim(),
-                category_id : props.search.category
-            }})
-            .then(res =>{
-                console.log(res.data)
-                setLibrary(res.data)
-            })
-            .catch(err =>{
-                console.log(err)
-            })
+      })
+        .then(res => {
+          console.log('res:', res.data)
+          setLibrary(res.data)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+    else if (props.search.searchValue && props.search.category !== 'All') {
+      console.log('here i am 2')
+      axios.get(url + 'listing/search', {
+        params: {
+          name: props.search.searchValue.toLowerCase().trim(),
+          category_id: props.search.category
         }
-        else{
-            axios.get(url+'listing/all')
-            .then(res =>{
-                console.log(res.data)
-                setLibrary(res.data)
-            })
-            .catch(err =>{
-                console.log(err)
-            }) 
-        }
-    },[])
+      })
+        .then(res => {
+          console.log(res.data)
+          setLibrary(res.data)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+    else {
+      axios.get(url + 'listing/all')
+        .then(res => {
+          console.log(res.data)
+          setLibrary(res.data)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+  }, [])
 
-    const cardList = library.map((el, index) => {
-       return <CardList key={index} {...el} />
-    })
-    
-    return ( 
-        <div>
-            {cardList}
-        </div>
-     );
+  const cardList = library.map((el, index) => {
+    return <CardList key={index} {...el} />
+  })
+
+  return (
+    <div>
+      {cardList}
+    </div>
+  );
 }
 
 const mapStateToProps = (state) => ({
-    search : state.wobbeReducer.search
+  search: state.wobbeReducer.search
 })
 
 export default connect(mapStateToProps)(Listing);
