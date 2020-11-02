@@ -3,11 +3,12 @@ import axios from 'axios';
 import Chat from './Chat'
 import {connect} from 'react-redux';
 import * as actions from "../actions/actions"
+import numeral from 'numeral';
 
 const url ='http://localhost:3000/listing/'
 
 const Card = (props) => {
-    console.log(props)
+    // console.log(props)
     return ( 
         <div className='card-lising-div'>
             <div className='card-listing-seller'>
@@ -15,12 +16,12 @@ const Card = (props) => {
             </div>
             <ul>
                 <li>Item: {props.item.name} </li>
-                <li>Price: {props.item.price}</li>
+                <li>Price: ${numeral(props.item.price).format('0,0')}</li>
                 <li>location: {props.item.location}</li>
                 <li>Description: {props.item.description}</li>
             </ul>
             <div className="chat-container">
-                <Chat/>
+                <Chat {...props}/>
             </div>
         </div>    
     );

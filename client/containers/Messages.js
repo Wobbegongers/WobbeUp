@@ -1,5 +1,5 @@
 import React from 'react';
-import Message from '../components/Message';
+import Message from '../components/message';
 
 
 const Messages = (props) => {
@@ -12,7 +12,7 @@ const Messages = (props) => {
     return ( 
         <div className="messages">
             {props.messageArray.map((ele,index) => {
-                return <Message message = {ele.text} user = {ele.user} key ={index} />
+                return <Message {...props} message = {ele.text} user = {ele.user} key ={index} />
             })}
             {/* <Message messages = {props.messageArray}/> */}
         </div>

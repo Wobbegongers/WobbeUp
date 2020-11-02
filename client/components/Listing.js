@@ -17,12 +17,15 @@ const Listing = (props) => {
   const [library, setLibrary] = useState([]);
 
   useEffect(() => {
-    console.log(props.search)
+    // console.log(props.search)
     if (props.search.searchValue && props.search.category === 'All') {
       console.log('here i am')
+      // console.log(props.search)
+      console.log(props.user_id)
       axios.get(url + 'listing/searchall', {
         params: {
           name: props.search.searchValue.toLowerCase().trim(),
+          user_id: props.user_id
         }
       })
         .then(res => {
@@ -38,7 +41,8 @@ const Listing = (props) => {
       axios.get(url + 'listing/search', {
         params: {
           name: props.search.searchValue.toLowerCase().trim(),
-          category_id: props.search.category
+          category_id: props.search.category,
+          user_id: props.user_id
         }
       })
         .then(res => {
@@ -49,31 +53,45 @@ const Listing = (props) => {
           console.log(err)
         })
     }
+  })
+    .then(res => {
+      console.log(res.data)
+      setLibrary(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
     else {
-      axios.get(url + 'listing/all')
-        .then(res => {
-          console.log(res.data)
-          setLibrary(res.data)
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    }
+  axios.get(url + 'listing/all')
+    .then(res => {
+      console.log(res.data)
+      setLibrary(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
   }, [])
 
-  const cardList = library.map((el, index) => {
-    return <CardList key={index} {...el} />
-  })
+const cardList = library.map((el, index) => {
+  return <CardList key={index} {...el} />
+})
 
-  return (
-    <div>
-      {cardList}
-    </div>
-  );
+return (
+  <div>
+    {cardList}
+  </div>
+);
 }
 
 const mapStateToProps = (state) => ({
+<<<<<<< HEAD
   search: state.wobbeReducer.search
+=======
+    search : state.wobbeReducer.search,
+    user_id : state.wobbeReducer.user_id
+>>>>>>> 769504afc235223aa3348b86eb6c919d53b8fbf0
 })
 
 export default connect(mapStateToProps)(Listing);

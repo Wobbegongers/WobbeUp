@@ -1,4 +1,5 @@
 import React from 'react';
+// import {connect} from 'react-redux';
 
 const Message = (props) => {
     // console.log('inside emssages')
@@ -8,7 +9,7 @@ const Message = (props) => {
         // replace billy with user to see how to style the messages
         // if the user name is the same then the message will go on the right 
         // if the user name is not the same then the message will go on the left
-        props.user === 'billy' 
+        props.user === props.username 
 
         ?
 
@@ -39,5 +40,4 @@ const Message = (props) => {
 
      );
 }
- 
-export default Message;
+export default (Message);
