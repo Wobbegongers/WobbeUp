@@ -62,7 +62,7 @@ const Chat = () =>{
 
     // console.log(message, messages)
     return(
-        <div>
+        <div className="chatWindow">
             <Messages messageArray={messages}/>
             <ChatInput onSend ={onSend}/>
         </div>

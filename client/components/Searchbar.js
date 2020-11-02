@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../public/logo.png'
+import logo from '../public/WobbeUp.png'
 import {connect} from 'react-redux';
 import * as actions from '../actions/actions'
 
@@ -15,6 +15,7 @@ const Searchbar = (props) => {
 
     const handleSearch = (e) =>{
         console.log(searchInput)
+        props.setSearchItem(searchInput);
     }
 
     const handleSearchInput = (e) =>{
@@ -31,14 +32,16 @@ const Searchbar = (props) => {
         <div className="search">
 
             <div className='searchLogo'>
-                <img src={logo}></img>
+                <img className="logo" src={logo}></img>
             </div>
-            
+            <div className="tagline">
+                <h2>Selling who knows what to God knows who</h2>
+            </div>
             <div className='searchbar'>
                 <div className="dropdown">
                     <select className="search-dropdown" name='category' onChange={handleSearchInput} value={searchInput.category} >
                         <option value='All'>All</option>
-                        <option value='Automobile'>Automobile</option>
+                        <option value='Cars'>Cars</option>
                         <option value='Electronics'>Electronics</option>
                         <option value='Video Games'>Video Games</option>
                         <option value='Others'>Others</option>
@@ -70,6 +73,6 @@ const mapStateToProps = (state) =>({
 })
 
 const mapActionToProps = {
-    setItem : actions.setItem,
+    setSearchItem : actions.setSearchItem,
 }
 export default connect(mapStateToProps, mapActionToProps)(Searchbar);

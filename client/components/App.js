@@ -8,8 +8,10 @@ import {BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './Nav';
 import Image from '../components/Image'
 import Footer from '../containers/Footer'
+import Signup from '../components/Signup'
 
 import CreateButton from './CreateButton';
+import Login from './Login';
 
 
 export default class App extends Component {
@@ -30,6 +32,11 @@ export default class App extends Component {
             <Route path="/chat" component={Chat}/>
 
             <Route path = '/image' component = {Image}/>
+            
+            <Route path='/login' component ={Login}/>
+            
+            <Route path='/signup' component ={Signup}/>
+
 
             <Footer/>
           </div>
