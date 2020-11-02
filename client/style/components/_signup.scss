@@ -1,0 +1,82 @@
+.signup-container {
+    width: 25em;
+    display: inline-block;
+    border: 0 solid $tertiary;
+    border-radius: 2em;
+    box-shadow: 2px 2px 7px $tertiary;
+    justify-content: center;
+    padding-top: 1em;
+    margin-left: 17em;
+    margin-top: 13em;
+    height: 21em;
+}
+
+.signup-form-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto auto auto auto;
+    width: 22em;
+}
+
+.loginLogo {
+    display: flex;
+    justify-content: center;
+}
+.login-logo {
+    height: auto !important;
+    width: 20em !important;
+}
+
+.loginform {
+    width: 16em;
+    margin-top: .5em;
+}
+
+.signupinput {
+    position: relative;
+    float: right;
+    line-height: 2em;
+    border: .5px solid $secondary;
+    border-radius: 1em;
+    padding-left: .75em;
+}
+
+.signuplabel {
+    line-height: 2em;
+}
+
+.signupsubmit {
+    font-size: large;
+    padding-left: .75em;
+    padding-right: .75em;
+    padding-top: .25em;
+    padding-bottom: .25em;
+    color: $lightprimary;
+    background: $header;
+    border: none;
+    border-radius: 1.5em;
+    transition: .2s;
+}
+.signupsubmit:hover {
+    background: $lightbg;
+    color: $header;
+}
+
+// .signupbutton {
+//     font-size: large;
+//     padding-left: .75em;
+//     padding-right: .75em;
+//     padding-top: .6em;
+//     padding-bottom: .6em;
+//     color: $lightprimary;
+//     background: $header;
+//     border: none;
+//     border-radius: 1.5em;
+//     transition: .2s;
+// }
+// .signupbutton:hover {
+//     background: $lightbg;
+//     color: $header;
+// }

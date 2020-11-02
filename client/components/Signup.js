@@ -63,48 +63,50 @@ const Signup = (props) => {
   return (
     redirect === false ? 
     <div className='signup-container'>
-      <div className='signup-logo-container'>
-        {/* <img className="signup-logo" src={logo}></img> */}
-      </div>
-      <div>
-        <h1>Signup up to WOBBE UP!</h1>
-      </div>
-      <form autoComplete='off' onSubmit={submitSignup}>
-        {/* real_name, username, password, location */}
-        <label>Nickname:</label>
-        <input
-          onChange={updateInfo}
-          type='text'
-          name='real_name'
-          value={signupInfo.real_name}
-        />
-        <label>Username:</label>
-        <input
-          onChange={updateInfo}
-          type='text'
-          name='username'
-          value={signupInfo.username}
+        <div className='signup-logo-container'>
+          {/* <img className="signup-logo" src={logo}></img> */}
+        </div>
+      <div className="signup-form-div">
+        <div>
+          <h1>Signup up to WOBBE UP!</h1>
+        </div>
+        <form autoComplete='off' onSubmit={submitSignup}>
+          {/* real_name, username, password, location */}
+          <label className="signuplabel">Nickname:</label>
+          <input className="signupinput"
+            onChange={updateInfo}
+            type='text'
+            name='real_name'
+            value={signupInfo.real_name}
+          />
+          <label className="signuplabel">Username:</label>
+          <input className="signupinput"
+            onChange={updateInfo}
+            type='text'
+            name='username'
+            value={signupInfo.username}
 
-        />
-        <label>Password:</label>
-        <input
-          onChange={updateInfo}
-          type='password'
-          name='password'
-          value={signupInfo.password}
-        />
-        <label>Zip Code:</label>
-        <input
-          onChange={updateInfo}
-          type='number'
-          name='location'
-          value={signupInfo.location}
-        /><br/>
-        <input 
-              type="submit" 
-              value="Submit"
-            />
-      </form>
+          />
+          <label className="signuplabel">Password:</label>
+          <input className="signupinput"
+            onChange={updateInfo}
+            type='password'
+            name='password'
+            value={signupInfo.password}
+          />
+          <label className="signuplabel">Zip Code:</label>
+          <input className="signupinput"
+            onChange={updateInfo}
+            type='number'
+            name='location'
+            value={signupInfo.location}
+          /><br/>
+          <input className="signupinput signupsubmit"
+                type="submit" 
+                value="Submit"
+              />
+        </form>
+      </div>
     </div>
     :
     <Redirect 
