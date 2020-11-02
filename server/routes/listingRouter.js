@@ -26,6 +26,16 @@ router.get('/search', listingController.findListing, (req, res) =>{
     }
 })
 
+router.get('/searchall', listingController.findListingInAll, (req,res) =>{
+    if(res.status === 204){
+        console.log('error')
+        res.send()
+    }
+    res.json(res.locals.items)
+})
+
+
+
 router.get('/all', listingController.findAllListing, (req, res) =>{
     // if there was an error in the query then respond with 204
     if(res.status === 204){

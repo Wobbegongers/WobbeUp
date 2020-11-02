@@ -1,6 +1,7 @@
 import {ACTION_TYPES} from '../actions/actions'
 
 const initialState = {
+    username: '',
     list : [],
     item : {},
     search : {}
@@ -11,6 +12,12 @@ export const wobbeReducer = (state = initialState, action) =>{
 
     switch(action.type){
         // Not finished yet!!!!
+        case ACTION_TYPES.SET_USERNAME:
+            return {
+                ...state,
+                username: action.payload
+            }    
+
         case ACTION_TYPES.SET_ITEM:
             return {
                 ...state,

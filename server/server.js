@@ -7,7 +7,7 @@ const bodyparser = require("body-parser");
 const http = require("http");
 const server = http.createServer(app);
 
-const socketio = require("socket.io");
+const socketio = require("socket.io")//(http, {wsEngine:'ws'});
 const io = socketio(server);
 const socketController = require("./users");
 const userRouter = require('./routes/userRouter')

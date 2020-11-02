@@ -17,9 +17,11 @@ const Card = (props) => {
                 <li>Item: {props.item.name} </li>
                 <li>Price: {props.item.price}</li>
                 <li>location: {props.item.location}</li>
-                <li>Description: OUR STUFF IS THE BEST 🔥🔥🔥 </li>
+                <li>Description: {props.item.description}</li>
             </ul>
-            <Chat/>
+            <div className="chat-container">
+                <Chat/>
+            </div>
         </div>    
     );
 }
