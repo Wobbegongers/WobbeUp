@@ -29,8 +29,7 @@ The problem that we at Wobbegongers have always wrestled with is the issue of co
   - [x] Read listing
   - [ ] Update listing
   - [ ] Delete listing
-* Communication between server and client
-  * Axios request to server
+* Axios communication between server and client
   - [x] Login
   - [x] Signup
   - [x] Send a search request and retirve a listing of result
