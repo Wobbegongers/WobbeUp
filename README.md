@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Wobbe Up :shark:
 
 ![Wobbe Up Logo](client/public/WobbeUp.png)
@@ -57,3 +58,6 @@ The problem that we at Wobbegongers have always wrestled with is the issue of co
 
 
 
+=======
+# Wobbegongers Scratch
+>>>>>>> b8e7a99e83418b084bb6d1ffb4df046a7d087e06
