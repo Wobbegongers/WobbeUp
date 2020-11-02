@@ -35,8 +35,6 @@ io.on("connection", (socket) => {
     // adds the user to the socket middleware handler to keep track of the user and returns the user in the format in the socket server
     const { user } = socketController.addUser({ id: socket.id, name, room });
 
-    console.log(user);
-
     // sends a message when someone logs into the room
     socket.emit("message", {
       user: "admin",

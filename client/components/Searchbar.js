@@ -1,32 +1,62 @@
 import React,{useState} from 'react';
 import { Link } from 'react-router-dom';
-// import Listing from './Listing';
+import logo from '../public/logo.png'
+import {connect} from 'react-redux';
+import * as actions from '../actions/actions'
 
+// import Listing from './Listing';
+const initialSearchInput = {
+    searchValue : '',
+    category:'All'
+}
 const Searchbar = (props) => {
-    const [category,setCategory] = useState('Category')
-    const handleClick = (e) =>{
-        console.log(e.target.outerText)
-        setCategory(e.target.outerText);
+    // const [category,setCategory] = useState('Category')
+    const [searchInput, setSearchInput] = useState(initialSearchInput);
+
+    const handleSearch = (e) =>{
+        console.log(searchInput)
     }
 
-    // const handleSearch = () =>{
-    //     props.setState(false)
-    // }
+    const handleSearchInput = (e) =>{
+        const {name, value} = e.target;
+        console.log(value)
+        setSearchInput({
+            ...searchInput,
+            [name]: value
+        })
+    }
+
     return ( 
 
         <div className="search">
-            <div className="dropdown">  
-                <div className="category">{category}</div>
-                <div className="dropdown-content">
-                    <a onClick={handleClick} value='Automobile'>Automobile</a><br/>
-                    <a onClick={handleClick} value='Electronics'>Electronics</a><br/>   
-                    <a onClick={handleClick} value="Toys">Toys</a>
+
+            <div className='searchLogo'>
+                <img src={logo}></img>
+            </div>
+            
+            <div className='searchbar'>
+                <div className="dropdown">
+                    <select className="search-dropdown" name='category' onChange={handleSearchInput} value={searchInput.category} >
+                        <option value='All'>All</option>
+                        <option value='Automobile'>Automobile</option>
+                        <option value='Electronics'>Electronics</option>
+                        <option value='Video Games'>Video Games</option>
+                        <option value='Others'>Others</option>
+                    </select>
                 </div>
+                <div className="search-box">
+                    <input className='searchInput-box'
+                    autoComplete= 'off'
+                    name ='searchValue'
+                    value = {searchInput.seachValue}
+                    placeholder='Wobbe are you looking for?'
+                    onChange={handleSearchInput} />
+                </div>
+                <Link className="searchbar-link" to='/listing' onClick={handleSearch}>
+                    <button className="wobbe-up">Wobbe Up!</button>
+                </Link>
             </div>
-            <div className="search-box">
-                <input/>
-            </div>
-            <Link className="wobbe-up" to='/listing'/*onClick={handleSearch}*/>Wobbe Up!</Link>
+
         </div> 
 
 
@@ -34,5 +64,12 @@ const Searchbar = (props) => {
 
     );
 }
- 
-export default Searchbar;
+
+const mapStateToProps = (state) =>({
+    item : state.wobbeReducer.item
+})
+
+const mapActionToProps = {
+    setItem : actions.setItem,
+}
+export default connect(mapStateToProps, mapActionToProps)(Searchbar);

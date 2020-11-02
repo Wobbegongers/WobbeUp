@@ -1,6 +1,7 @@
-import {combineReducer} from 'redux';
+import {combineReducers} from 'redux';
 import {wobbeReducer} from './wobbeReducer';
 
-export const reducers = combineReducer({
+
+export const reducers = combineReducers({
     wobbeReducer
 })

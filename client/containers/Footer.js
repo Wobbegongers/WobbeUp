@@ -1,9 +1,10 @@
 import React from 'react';
+import CreateButton from '../components/CreateButton'
 
 const Footer = (props) => {
     return ( 
-        <div>
-            
+        <div className='Footer'>
+            <CreateButton/>
         </div>
      );
 }

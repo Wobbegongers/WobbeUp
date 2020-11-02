@@ -20,7 +20,7 @@ const Chat = () =>{
     // let socket = io(ENDPOINT)
     // basically component did mount
     useEffect(()=>{
-        console.log("socketsss", socket)
+        // console.log("socketsss", socket)
         // socket = io(ENDPOINT)
         // set the name and room
         setName(name)
@@ -35,7 +35,7 @@ const Chat = () =>{
         })
 
         return () =>{
-            console.log('exiting')
+            // console.log('exiting')
             socket.emit('disconnect')
             socket.off()
         }
@@ -57,13 +57,13 @@ const Chat = () =>{
         // sends the message to the socket server and resets the message
         socket.emit('sendMessage', incoming_message, () => setMessage(''))
 
-        console.log('did it')
+        // console.log('did it')
     }
 
-    console.log(message, messages)
+    // console.log(message, messages)
     return(
         <div>
-            <Messages messageArray ={messages}/>
+            <Messages messageArray={messages}/>
             <ChatInput onSend ={onSend}/>
         </div>
     )

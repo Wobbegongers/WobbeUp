@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Message = (props) => {
-    console.log('inside emssages')
-    console.log(props.message)
-    console.log(props.user)
+    // console.log('inside emssages')
+    // console.log(props.message)
+    // console.log(props.user)
     return ( 
         // replace billy with user to see how to style the messages
         // if the user name is the same then the message will go on the right 
