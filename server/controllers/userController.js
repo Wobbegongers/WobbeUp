@@ -13,7 +13,7 @@ userController.login = (req,res,next) => {
             next()
         }
         else{
-            console.log(result)
+            // console.log(result)
             res.locals.found = true
             res.locals.user = result.rows[0]
             next()
@@ -40,7 +40,7 @@ userController.addUser = (req,res,next) =>{
         }
         else{
             console.log('added user')
-            console.log(result)
+            // console.log(result)
             next()
         }
     })

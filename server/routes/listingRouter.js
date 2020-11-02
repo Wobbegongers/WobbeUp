@@ -34,6 +34,22 @@ router.get('/searchall', listingController.findListingInAll, (req,res) =>{
     res.json(res.locals.items)
 })
 
+router.get('/searchname', listingController.findName, (req, res) =>{
+    if(res.status === 204){
+        console.log('error')
+        res.send()
+    }
+    // res.send()
+    res.json(res.locals.name)
+})
+
+router.get('/userItems', listingController.findItemForUser, (req, res) => {
+    if(res.status === 204){
+        console.log('error')
+        res.send()
+    }
+    res.json(res.locals.items)
+})
 
 
 router.get('/all', listingController.findAllListing, (req, res) =>{
