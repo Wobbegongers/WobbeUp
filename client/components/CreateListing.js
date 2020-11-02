@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, {useState} from 'react';
 import {Redirect} from 'react-router-dom'
 
@@ -6,6 +7,7 @@ const initialFormState = {
     price: 0,
     description: ''
 }
+const url = 'http://localhost:3000/'
 
 const CreateListing = (props) => {
     const [itemInfo, setItemInfo] = useState(initialFormState)
@@ -17,12 +19,16 @@ const CreateListing = (props) => {
             ...itemInfo,
             [name] : value
         })
-        // console.log('item Info: ', itemInfo)
     }
 
     const submitForm = (e) => {
         e.preventDefault();
         console.log(itemInfo)
+        axios.post(url + 'listing/create', {
+            params :{
+                
+            }
+        })
         changePath()
     }
     const changePath = ()=>{
@@ -45,9 +51,9 @@ const CreateListing = (props) => {
             ITEM DESCRIPTION
             ITEM LOCATION         
         */}
-        <form autoComplete='off' onSubmit={submitForm} className='form' >
-            <label >Item Name:</label>
-            <input 
+        <form className="itemform" autoComplete='off' onSubmit={submitForm} className='form' >
+            <label className="listinglabel">Item Name:</label>
+            <input className="itemname listinginput"
                 onChange={updateText}
                 name='name'
                 value={itemInfo.name}
@@ -55,8 +61,16 @@ const CreateListing = (props) => {
                 id="itemname" 
                 placeholder="Item Name"
             /><br/>
-            <label >Item Price:</label>
-            <input 
+            <label className="listinglabel">Category:</label>
+                <select className="item-dropdown listinginput" name='category'>
+                    <option value='All'>All</option>
+                    <option value='Cars'>Cars</option>
+                    <option value='Electronics'>Electronics</option>
+                    <option value='Video Games'>Video Games</option>
+                    <option value='Others'>Others</option>
+                </select> <br/>
+            <label className="listinglabel">Item Price:</label>
+            <input className="itemprice listinginput"
                 onChange={updateText}
                 name='price'
                 value={`${itemInfo.price}`}
@@ -64,15 +78,15 @@ const CreateListing = (props) => {
                 id="itemprice" 
                 placeholder="Item Price"
             /><br/>
-            <label >Item Description:</label><br/>
-            <textarea 
+            <label className="listinglabel">Item Description:</label><br/>
+            <textarea className="itemdescrip " 
               onChange={updateText}
               value={itemInfo.description}
                 name="description" 
                 cols="40" 
                 rows="5">
             </textarea><br/>
-            <input type="submit" value="Submit"/>
+            <input className="itemsubmit" type="submit" value="Submit"/>
             {renderRedirect()}
         </form>
     </div> 

@@ -8,32 +8,42 @@ import {BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './Nav';
 import Image from '../components/Image'
 import Footer from '../containers/Footer'
+import Signup from '../components/Signup'
+import {connect} from 'react-redux';
+import Login from './Login';
 
-import CreateButton from './CreateButton';
+const App = (props) => {
+  return (
+    <Router>
+        <div className="page">
+          <Nav/>
+          
+          <Route path='/login' component ={Login}/>
+          
+          <Route path='/signup' component ={Signup}/>
+    
+          <Route path="/" exact component={Home}/>
 
+          <Route path="/listing" component={Listing}/>
 
-export default class App extends Component {
-  render() {
-    return (
-      <Router>
-          <div className="page">
-            <Nav/>
-            <Route path="/" exact component={Home}/>
+          <Route path="/item/:id" component={Card}
+          />
 
-            <Route path="/listing" component={Listing}/>
+          <Route path="/create" component={CreateListing}/>
 
-            <Route path="/item/:id" component={Card}
-            />
+          <Route path="/chat" component={Chat}/>
 
-            <Route path="/create" component={CreateListing}/>
+          <Route path = '/image' component = {Image}/>
 
-            <Route path="/chat" component={Chat}/>
-
-            <Route path = '/image' component = {Image}/>
-
-            <Footer/>
-          </div>
-      </Router>
-    )
-  }
+          <Footer/>
+        </div>
+    </Router>
+  ) ;
 }
+
+const mapStateToProps = (state) =>({
+  username: state.wobbeReducer.username
+})
+
+export default connect(mapStateToProps)(App);
+

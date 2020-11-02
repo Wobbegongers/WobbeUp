@@ -1,6 +1,10 @@
 $primarybg: #f8fafc;
 $lightbg: #bacee3;
 $header: #3d6994;
+$primary: #252e36;
+$secondary: #425261;
+$tertiary: #a1b0bf;
+$lightprimary: #f3f5f7;
 
 * {
   margin: 0;
@@ -11,9 +15,9 @@ $header: #3d6994;
 .navBar {
   display: flex;
   background: $header;
-  position: fixed;
-  left: 0;
-  top: 0;
+  // position: fixed;
+  // left: 0;
+  // top: 0;
   width: 100%;
 }
 
@@ -26,13 +30,13 @@ $header: #3d6994;
 }
 
 .navLogo {
-  color: white;
+  color: $lightprimary;
   text-decoration: none;
 }
 
 .navLi {
   font-weight: 500;
-  color: white;
+  color: $lightprimary;
 }
 
 // SEARCH BAR
@@ -49,6 +53,20 @@ $header: #3d6994;
   justify-content: center;
 }
 
+.logo {
+  height: auto;
+  width: 35%;
+}
+
+.tagline {
+  padding-bottom: 1em;
+  color: $secondary;
+}
+
+h2 {
+  font-weight: 400;
+}
+
 .search {
   background-color: $primarybg;
   display: flex;
@@ -60,21 +78,18 @@ $header: #3d6994;
 
 .searchbar {
   background-color: $primarybg;
-  // padding-top: 0.25em;
-  // padding-bottom: 0.25em;
-  // padding-right: 1em;
-  // padding-left: 1em;
-  // border-radius: 3em;
   display: flex;
   box-shadow: 1px 3px 10px;
-  // flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
+  border-radius: 30px;
+  height: 3em;
+  width: 45em;
 }
 
 option {
-  line-height: 4em;
+  padding-right: 5em;
+  border: 1px solid red;
 }
 
 .dropdown {
@@ -87,12 +102,20 @@ option {
   padding: 0.4em;
   border: none;
   border-right: 0.25px solid grey;
-  border-radius: 15px 0 0 15px;
+  border-radius: 30px 0 0 30px;
+  width: 20.5em;
+  height: 3.5em;
+}
+
+.searchbar-link {
+  text-decoration: none;
 }
 
 .searchInput-box {
   padding: 0.5em;
   border: none;
+  width: 25em;
+  height: 2.5em;
 }
 
 .searchbox {
@@ -107,50 +130,11 @@ option {
   border: none;
   text-decoration: none;
   border-left: 0.25px solid grey;
-  border-radius: 0 15px 15px 0;
+  border-radius: 0 30px 30px 0;
+  width: 10em;
+  height: 3.5em;
 }
 
-// .dropdown {
-//   overflow: hidden;
-//   font-size: 16px;
-//   border: none;
-//   outline: none;
-//   color: white;
-//   // padding: 14px 16px;
-//   background-color: inherit;
-//   font-family: inherit;
-//   margin: 0;
-// }
-// .dropdown-content {
-//   display: none;
-//   position: absolute;
-//   background-color: blue;
-//   // min-width: 160px;
-//   // box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-//   z-index: 1;
-// }
-// .dropdown-content a {
-//   color: black;
-//   padding: 0.75em 1em;
-//   text-decoration: none;
-//   display: block;
-//   text-align: left;
-// }
-// .dropdown:hover .dropdown-content {
-//   display: block;
-// }
-// .dropdown-content a:hover {
-//   background-color: white;
-// }
-
-.messages {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  height: 250px;
-  width: 200px;
-  background-color: aqua;
-}
 .same-user {
   display: flex;
   justify-content: flex-end;
@@ -170,6 +154,11 @@ option {
   width: 300px;
 }
 
+.button-container:hover {
+  background: $primarybg;
+  color: $primary;
+}
+
 .Footer {
   position: fixed;
   left: 0;
@@ -181,20 +170,142 @@ option {
 
 .button-container {
   background: $header;
+  width: 100%;
+  transition: 0.2s;
 }
 
 .footerButton {
   background: $header;
+  width: 100%;
 }
 
-//CREATE LISTING
+#specialButton {
+  color: $lightprimary;
+  transition: 0.2s;
+}
 
-.create-listing-container {
-  background: $primarybg;
+#specialButton:hover {
+  color: $secondary;
+}
+
+//LOGIN PAGE
+.login-logo {
+  height: auto;
+  width: 35%;
+}
+
+//Signup page
+signup-logo {
+  height: auto;
+  width: 35%;
+}
+
+.chatWindow {
+  border: 0.5px solid $tertiary;
+  border-radius: 15px 15px 0 0;
+  background: $lightprimary;
+  position: fixed;
+  width: 450px;
+  bottom: 60px;
+  right: 0px;
+  margin-right: 0.5em;
+}
+
+.messages {
   display: flex;
-  margin-top: 15em;
+  flex-direction: column;
+  padding: 10px;
+  height: 250px;
+  width: 95%;
+  color: white;
+  overflow: scroll;
 }
 
-.searchbar-link {
-  text-decoration: none;
+.message {
+  color: white;
+}
+
+#textInput {
+  width: 95%;
+  height: 2em;
+  padding-left: 1em;
+  margin-bottom: 0.5em;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  border: 0.5px solid $tertiary;
+  border-radius: 15px;
+}
+
+.same-user {
+  background: $tertiary;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin-left: 195px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  width: 50%;
+}
+
+.diff-user {
+  background: $primary;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  width: 50%;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+//CREATE LISTING PAGE
+.create-listing-container {
+  border: 1px solid red;
+  // background: $primarybg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20em;
+  height: 25em;
+  margin: 15em auto auto auto;
+}
+
+.itemform {
+  border: 1px solid purple;
+}
+
+.itemname {
+  margin-bottom: 1em;
+  border: 1px solid blue;
+}
+
+.listinglabel {
+  display: inline-block;
+  float: left;
+  border: 1px solid black;
+  width: 120px;
+  text-align: left;
+}
+
+.listinginput {
+  display: inline-block;
+  float: right;
+}
+
+.item-dropdown {
+  margin-bottom: 1em;
+  display: inline-block;
+  justify-content: right;
+}
+
+.itemprice {
+  margin-bottom: 1em;
+  border: 1px solid green;
+}
+
+.itemdescrip {
+  margin-bottom: 1em;
+  border: 1px solid yellow;
+}
+
+.itemsubmit {
 }
