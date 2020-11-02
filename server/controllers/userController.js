@@ -4,7 +4,7 @@ const userController = {};
 
 
 userController.login = (req,res,next) => {
-    let query = `SELECT username, password FROM users WHERE username = ($1) AND password = ($2);`
+    let query = `SELECT * FROM users WHERE username = ($1) AND password = ($2);`
     let params = [req.query.username, req.query.password];
     db.query(query, params, (err, result) => {
         if(result.rows.length === 0){
@@ -13,8 +13,9 @@ userController.login = (req,res,next) => {
             next()
         }
         else{
-            console.log(result)
+            // console.log(result)
             res.locals.found = true
+            res.locals.user = result.rows[0]
             next()
         }
        
@@ -39,7 +40,7 @@ userController.addUser = (req,res,next) =>{
         }
         else{
             console.log('added user')
-            console.log(result)
+            // console.log(result)
             next()
         }
     })
