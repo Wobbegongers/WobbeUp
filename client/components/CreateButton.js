@@ -4,8 +4,8 @@ import { Button } from '@material-ui/core';
 
 const CreateButton = (props) => {
     return ( 
-        <div className="button-box" >
-            <Link className="button" to="/create"><Button>Wobbe up an item</Button></Link>
+        <div className="button-container" >
+            <Link className="button" to="/create"><Button className='footerButton'>Wobbe up an item</Button></Link>
         </div>
      );
      

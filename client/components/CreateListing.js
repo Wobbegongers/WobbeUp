@@ -37,7 +37,7 @@ const CreateListing = (props) => {
     
 
     return ( 
-    <div className="create_listing_container">
+    <div className="create-listing-container">
         {/* 
             USER NAME
             ITEM NAME
@@ -45,7 +45,7 @@ const CreateListing = (props) => {
             ITEM DESCRIPTION
             ITEM LOCATION         
         */}
-        <form autoComplete='off' onSubmit={submitForm}>
+        <form autoComplete='off' onSubmit={submitForm} className='form' >
             <label >Item Name:</label>
             <input 
                 onChange={updateText}

@@ -1,20 +1,28 @@
+$primarybg: #f8fafc;
+$lightbg: #bacee3;
+$header: #3d6994;
+
 * {
   margin: 0;
   padding: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
 .navBar {
   display: flex;
-  background: black;
-  text-decoration: none;
+  background: $header;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
 }
 
 .navUl {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  text-decoration: none;
   padding: 1em;
+  list-style-type: none;
 }
 
 .navLogo {
@@ -23,8 +31,83 @@
 }
 
 .navLi {
+  font-weight: 500;
   color: white;
+}
+
+// SEARCH BAR
+.main {
+  background: $primarybg;
+  height: 100vh;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.searchLogo {
+  display: flex;
+  justify-content: center;
+}
+
+.search {
+  background-color: $primarybg;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 15em;
+}
+
+.searchbar {
+  background-color: $primarybg;
+  // padding-top: 0.25em;
+  // padding-bottom: 0.25em;
+  // padding-right: 1em;
+  // padding-left: 1em;
+  // border-radius: 3em;
+  display: flex;
+  box-shadow: 1px 3px 10px;
+  // flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+
+option {
+  line-height: 4em;
+}
+
+.dropdown {
+  display: inline;
+  position: relative;
+  font-family: Arial;
+}
+
+.search-dropdown {
+  padding: 0.4em;
+  border: none;
+  border-right: 0.25px solid grey;
+  border-radius: 15px 0 0 15px;
+}
+
+.searchInput-box {
+  padding: 0.5em;
+  border: none;
+}
+
+.searchbox {
+  display: inline-block;
+}
+
+.wobbe-up {
+  display: inline;
+  padding: 0.5em;
+  padding-right: 1em;
+  background: white;
+  border: none;
   text-decoration: none;
+  border-left: 0.25px solid grey;
+  border-radius: 0 15px 15px 0;
 }
 
 // .dropdown {
@@ -85,4 +168,33 @@
 }
 .searchInput-box {
   width: 300px;
+}
+
+.Footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $header;
+  text-align: center;
+}
+
+.button-container {
+  background: $header;
+}
+
+.footerButton {
+  background: $header;
+}
+
+//CREATE LISTING
+
+.create-listing-container {
+  background: $primarybg;
+  display: flex;
+  margin-top: 15em;
+}
+
+.searchbar-link {
+  text-decoration: none;
 }

@@ -48,7 +48,7 @@ const Chat = () =>{
         socket.on('message',message =>{
             setMessages([...messages, message])
         })
-    },[message])
+    },[messages])
     
 
     // sends the message to the server
@@ -63,7 +63,7 @@ const Chat = () =>{
     // console.log(message, messages)
     return(
         <div>
-            <Messages messageArray ={messages}/>
+            <Messages messageArray={messages}/>
             <ChatInput onSend ={onSend}/>
         </div>
     )

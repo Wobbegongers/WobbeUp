@@ -35,7 +35,8 @@ module.exports = {
   devServer: {
     // publicPath: "/build/"
     proxy: {
-      '/socket.io/' : 'http://localhost:3000'
+      '/socket.io/' : 'http://localhost:3000',
+      '/account/' : 'http://localhost:3000'
     },
     historyApiFallback : true
   },

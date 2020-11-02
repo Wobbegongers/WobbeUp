@@ -13,20 +13,17 @@ const Listing = (props) => {
     useEffect(()=>{
         axios.get(url+'listing/all')
         .then(res =>{
-            console.log(res)
+            // console.log(res.data)
+            setLibrary(res.data)
         })
         .catch(err =>{
             console.log(err)
         })
+    },[])
+
+    const cardList = library.map(( el,index) => {
+       return <CardList key={index} {...el} />
     })
-
-
-    let cardList = []
-    for (let i = 0; i< 10; i++){
-        cardList.push(
-            <CardList key={i} item={i}/>
-        )
-    }
     
     return ( 
         <div>
