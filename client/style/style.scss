@@ -1,45 +1,17 @@
-$primarybg: #f8fafc;
-$lightbg: #bacee3;
-$header: #3d6994;
-$primary: #252e36;
-$secondary: #425261;
-$tertiary: #a1b0bf;
-$lightprimary: #f3f5f7;
+@import './abstract/variables';
+@import './components/nav';
+@import './components/searchbar';
+@import './container/footer';
+@import './components/messages';
+@import './components/createListing';
 
+//GLOBAL VAIRABLES 
 * {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
 }
-
-.navBar {
-  display: flex;
-  background: $header;
-  // position: fixed;
-  // left: 0;
-  // top: 0;
-  width: 100%;
-}
-
-.navUl {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  padding: 1em;
-  list-style-type: none;
-}
-
-.navLogo {
-  color: $lightprimary;
-  text-decoration: none;
-}
-
-.navLi {
-  font-weight: 500;
-  color: $lightprimary;
-}
-
-// SEARCH BAR
+//VARIABLES THAT IMPACT CLASS ON CLIENT/CONTAINER/MAIN
 .main {
   background: $primarybg;
   height: 100vh;
@@ -48,144 +20,8 @@ $lightprimary: #f3f5f7;
   align-items: center;
 }
 
-.searchLogo {
-  display: flex;
-  justify-content: center;
-}
-
-.logo {
-  height: auto;
-  width: 35%;
-}
-
-.tagline {
-  padding-bottom: 1em;
-  color: $secondary;
-}
-
-h2 {
-  font-weight: 400;
-}
-
-.search {
-  background-color: $primarybg;
-  display: flex;
-  flex-flow: column nowrap;
-  width: 100%;
-  align-items: center;
-  margin-bottom: 15em;
-}
-
-.searchbar {
-  background-color: $primarybg;
-  display: flex;
-  box-shadow: 1px 3px 10px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 30px;
-  height: 3em;
-  width: 45em;
-}
-
-option {
-  padding-right: 5em;
-  border: 1px solid red;
-}
-
-.dropdown {
-  display: inline;
-  position: relative;
-  font-family: Arial;
-}
-
-.search-dropdown {
-  padding: 0.4em;
-  border: none;
-  border-right: 0.25px solid grey;
-  border-radius: 30px 0 0 30px;
-  width: 20.5em;
-  height: 3.5em;
-}
-
-.searchbar-link {
-  text-decoration: none;
-}
-
-.searchInput-box {
-  padding: 0.5em;
-  border: none;
-  width: 25em;
-  height: 2.5em;
-}
-
-.searchbox {
-  display: inline-block;
-}
-
-.wobbe-up {
-  display: inline;
-  padding: 0.5em;
-  padding-right: 1em;
-  background: white;
-  border: none;
-  text-decoration: none;
-  border-left: 0.25px solid grey;
-  border-radius: 0 30px 30px 0;
-  width: 10em;
-  height: 3.5em;
-}
-
-.same-user {
-  display: flex;
-  justify-content: flex-end;
-  text-align: right;
-  right: 0;
-}
-.diff-user {
-  display: flex;
-  text-align: left;
-  left: 0;
-}
-
 .button {
   text-decoration: none;
-}
-.searchInput-box {
-  width: 300px;
-}
-
-.button-container:hover {
-  background: $primarybg;
-  color: $primary;
-}
-
-.Footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: $header;
-  text-align: center;
-}
-
-.button-container {
-  background: $header;
-  width: 100%;
-  transition: 0.2s;
-}
-
-.footerButton {
-  background: $header;
-  width: 100%;
-}
-
-#specialButton {
-  color: $lightprimary;
-  transition: 0.2s;
-}
-
-#specialButton:hover {
-  color: $secondary;
 }
 
 //LOGIN PAGE
@@ -200,112 +36,7 @@ signup-logo {
   width: 35%;
 }
 
-.chatWindow {
-  border: 0.5px solid $tertiary;
-  border-radius: 15px 15px 0 0;
-  background: $lightprimary;
-  position: fixed;
-  width: 450px;
-  bottom: 60px;
-  right: 0px;
-  margin-right: 0.5em;
-}
 
-.messages {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  height: 250px;
-  width: 95%;
-  color: white;
-  overflow: scroll;
-}
 
-.message {
-  color: white;
-}
 
-#textInput {
-  width: 95%;
-  height: 2em;
-  padding-left: 1em;
-  margin-bottom: 0.5em;
-  margin-left: 0.25em;
-  margin-right: 0.25em;
-  border: 0.5px solid $tertiary;
-  border-radius: 15px;
-}
 
-.same-user {
-  background: $tertiary;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  margin-left: 195px;
-  margin-bottom: 5px;
-  border-radius: 10px;
-  width: 50%;
-}
-
-.diff-user {
-  background: $primary;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  width: 50%;
-  margin-bottom: 5px;
-  border-radius: 10px;
-}
-
-//CREATE LISTING PAGE
-.create-listing-container {
-  border: 1px solid red;
-  // background: $primarybg;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20em;
-  height: 25em;
-  margin: 15em auto auto auto;
-}
-
-.itemform {
-  border: 1px solid purple;
-}
-
-.itemname {
-  margin-bottom: 1em;
-  border: 1px solid blue;
-}
-
-.listinglabel {
-  display: inline-block;
-  float: left;
-  border: 1px solid black;
-  width: 120px;
-  text-align: left;
-}
-
-.listinginput {
-  display: inline-block;
-  float: right;
-}
-
-.item-dropdown {
-  margin-bottom: 1em;
-  display: inline-block;
-  justify-content: right;
-}
-
-.itemprice {
-  margin-bottom: 1em;
-  border: 1px solid green;
-}
-
-.itemdescrip {
-  margin-bottom: 1em;
-  border: 1px solid yellow;
-}
-
-.itemsubmit {
-}

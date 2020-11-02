@@ -1,0 +1,26 @@
+.navBar {
+  display: flex;
+  background: $header;
+  // position: fixed;
+  // left: 0;
+  // top: 0;
+  width: 100%;
+}
+
+.navUl {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1em;
+  list-style-type: none;
+}
+
+.navLogo {
+  color: $lightprimary;
+  text-decoration: none;
+}
+
+.navLi {
+  font-weight: 500;
+  color: $lightprimary;
+}
