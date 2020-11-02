@@ -1,0 +1,35 @@
+//CSS FOR CLIENT/CONTAINERS/FOOTER
+
+.Footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $header;
+  text-align: center;
+}
+
+.button-container {
+  background: $header;
+  width: 100%;
+  transition: 0.2s;
+}
+
+.footerButton {
+  background: $header;
+  width: 100%;
+}
+
+#specialButton {
+  color: $lightprimary;
+  transition: 0.2s;
+}
+
+#specialButton:hover {
+  color: $secondary;
+}
+
+.button-container:hover {
+  background: $primarybg;
+  color: $primary;
+}
