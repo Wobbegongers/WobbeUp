@@ -43,7 +43,8 @@ const CardList = (props) => {
                 <li>Price : ${numeral(props.price).format('0,0')}</li>
                 <li>Location {(props.location)}</li>
             </ul>
-            <button onClick={handleClick}><Link to={`/item/${props.name}`} > button </Link> </button>
+            <button onClick={handleClick}><Link to={`/item/${props.name}`} >Details </Link> </button>
+
         </div>
      );
 }
