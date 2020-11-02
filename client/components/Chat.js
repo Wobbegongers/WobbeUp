@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react'
 import io from 'socket.io-client'
 import Messages from '../containers/Messages'
 import ChatInput from './ChatInput'
+import {connect} from 'react-redux'
 
 
 const ENDPOINT = 'localhost:3000'
 let socket = io(ENDPOINT)
 
 
-const Chat = () =>{
+const Chat = (props) =>{
     // the name of the person that wants to join (profile name)
-    const [name, setName] = useState('billy')
+    // console.log(props)
+    const [name, setName] = useState(props.username)//username from redux store
     // set the name of the room to the product
-    const [room, setRoom] = useState('tester room')
+    const [room, setRoom] = useState(props.item.name)//props itemname
     const [message, setMessage] = useState('')
     const [messages, setMessages] = useState([])
     
@@ -20,18 +22,11 @@ const Chat = () =>{
     // let socket = io(ENDPOINT)
     // basically component did mount
     useEffect(()=>{
-        // console.log("socketsss", socket)
-        // socket = io(ENDPOINT)
-        // set the name and room
-        setName(name)
-        setRoom(room)
 
         socket.emit('join', {name, room}, (err) =>{
             if(err){
                 alert(err)
             }
-            
-
         })
 
         return () =>{
@@ -63,11 +58,14 @@ const Chat = () =>{
     // console.log(message, messages)
     return(
         <div className="chatWindow">
-            <Messages messageArray={messages}/>
+            <Messages {...props} messageArray={messages}/>
             <ChatInput onSend ={onSend}/>
         </div>
     )
 }
 
+const mapStateToProps = (state) => ({
+    username: state.wobbeReducer.username
+})
 
-export default Chat
+export default connect(mapStateToProps)(Chat);

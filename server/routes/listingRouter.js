@@ -21,7 +21,7 @@ router.get('/search', listingController.findListing, (req, res) =>{
     }
     else{
         // sends back the items that were found in the query 
-        console.log(res.locals.items)
+        // console.log(res.locals.items)
         res.json(res.locals.items)
     }
 })
@@ -44,7 +44,7 @@ router.get('/all', listingController.findAllListing, (req, res) =>{
     }
     else{
         // sends back the items that were found in the query 
-        console.log(res.locals.items)
+        // console.log(res.locals.items)
         res.json(res.locals.items)
     }
 })
