@@ -54,13 +54,9 @@ const CreateListing = (props) => {
 
     return ( 
     <div className="create-listing-container">
-        {/* 
-            USER NAME
-            ITEM NAME
-            ITEM PRICE
-            ITEM DESCRIPTION
-            ITEM LOCATION         
-        */}
+        <div>
+            <h1 className="createlistingtext">List New Wobbe Item:</h1>
+        </div>
         <form className="itemform" autoComplete='off' onSubmit={submitForm} className='form' >
             <label className="listinglabel">Item Name:</label>
             <input className="itemname listinginput"

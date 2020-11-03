@@ -64,7 +64,7 @@ const Signup = (props) => {
         </div>
       <div className="signup-form-div">
         <div>
-          <h1>Signup up to WOBBE UP!</h1>
+          <h1 className="signuptext">Signup up to WOBBE UP!</h1>
         </div>
         <form autoComplete='off' onSubmit={submitSignup}>
           {/* real_name, username, password, location */}
