@@ -29,10 +29,10 @@ app.use('/listing',listingRouter)
 app.use('/profile', profileRouter)
 
 io.on("connection", (socket) => {
-  console.log("New user has joined");
+  // console.log("New user has joined");
 
   socket.on("join", ({ name, room }, callback) => {
-    console.log(name, room);
+    // console.log(name, room);
 
     // adds the user to the socket middleware handler to keep track of the user and returns the user in the format in the socket server
     const { user } = socketController.addUser({ id: socket.id, name, room });
