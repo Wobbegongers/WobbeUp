@@ -37,13 +37,13 @@ const CardList = (props) => {
 
     return ( 
         <div className='CardList'>
-            <ul>
-                <li>Name: {Ownername}</li>
-                <li>item: {(props.name)}</li>
-                <li>Price : ${numeral(props.price).format('0,0')}</li>
-                <li>Location {(props.location)}</li>
+            <ul className="cardcontainer">
+                <li className="cardlistitem"><label className="cardlabel">Name:</label> {Ownername}</li>
+                <li className="cardlistitem"><label className="cardlabel">Item:</label> {(props.name)}</li>
+                <li className="cardlistitem"><label className="cardlabel">Price:</label> ${numeral(props.price).format('0,0')}</li>
+                <li className="cardlistitem"><label className="cardlabel">Location:</label> {(props.location)}</li>
             </ul>
-            <button onClick={handleClick}><Link to={`/item/${props.name}`} >Details </Link> </button>
+            <button className="cardbutton" onClick={handleClick}><Link className="linktext" to={`/item/${props.name}`} >Details </Link></button>
 
         </div>
      );

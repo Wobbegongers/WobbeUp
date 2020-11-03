@@ -87,7 +87,7 @@ const CreateListing = (props) => {
                 placeholder="Item Price"
             /><br/>
             <label className="listinglabel">Item Description:</label><br/>
-            <textarea className="itemdescrip " 
+            <textarea className="itemdescrip" 
               onChange={updateText}
               value={itemInfo.description}
                 name="description" 
