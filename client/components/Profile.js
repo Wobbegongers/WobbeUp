@@ -18,7 +18,6 @@ const Profile = (props) => {
   const [userListing, setUserListing] = useState([]);
   const [redirect, setRedirect] = useState(false);
 
-
   useEffect(() => {
     // console.log(props)
     if(props.username ==='') setRedirect(true)
@@ -34,7 +33,10 @@ const Profile = (props) => {
       .catch(err => console.log(err))
     }
   }, []);
-
+  const sChecker = (name) =>{
+    if(name[name.length-1]==='s') return `${name}'`
+    else return `${name}'s`
+  }
   const cardList = userListing.map((el, index) => {
     return <CardList key={index} {...el} />
   });
@@ -43,6 +45,9 @@ const Profile = (props) => {
     redirect === false 
     ?
     <div>
+      <div>
+        <h1>{sChecker(props.username)} listings </h1>
+      </div>
       {cardList}
       <Footer />
     </div>
