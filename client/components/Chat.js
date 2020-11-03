@@ -58,7 +58,7 @@ const Chat = (props) =>{
     // console.log(message, messages)
     return(
         <div className="chatWindow">
-            <Messages {...props} messageArray={messages}/>
+            <Messages {...props} messageArray={messages} owner = {props.ownername}/>
             <ChatInput onSend ={onSend}/>
         </div>
     )

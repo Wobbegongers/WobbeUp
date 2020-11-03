@@ -43,7 +43,7 @@ const CardList = (props) => {
                 <li className="cardlistitem"><label className="cardlabel">Price:</label> ${numeral(props.price).format('0,0')}</li>
                 <li className="cardlistitem"><label className="cardlabel">Location:</label> {(props.location)}</li>
             </ul>
-            <button className="cardbutton" onClick={handleClick}><Link className="linktext" to={`/item/${props.name}`} >Details </Link></button>
+            <button className="cardbutton" onClick={handleClick}><Link className="linktext" to={{pathname: `/item/${props.name}`}} >Details </Link></button>
 
         </div>
      );

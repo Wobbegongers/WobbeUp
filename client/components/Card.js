@@ -8,7 +8,8 @@ import numeral from 'numeral';
 const url ='http://localhost:3000/listing/'
 
 const Card = (props) => {
-
+    console.log('inside card')
+    console.log(props)
     const [Ownername, setOwnerName] = useState('')
 
     useEffect(() => {
