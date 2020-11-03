@@ -9,7 +9,7 @@ const Home = (props) => {
     const [redirect, setRedirect] = useState(false);
 
     useEffect(()=>{
-        console.log('hello ', props.username)
+        // console.log('hello ', props.username)
         if(props.location.state){
             props.setID(props.location.state.id);
             props.setLocation(props.location.state.location)
