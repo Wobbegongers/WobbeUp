@@ -1,0 +1,55 @@
+.CardList {
+    width: 13em;
+    height: 12em;
+    margin: 1em;
+    padding: 1em;
+    border: none;
+    border-radius: 1em;
+    box-shadow: 2px 2px 7px $tertiary;
+}
+
+.cardcontainer {
+    list-style: none;
+    margin-top: .5em;
+}
+
+.cardlistitem {
+    margin-bottom: 1em;
+}
+
+.cardlabel {
+    color: $header;
+    font-weight: 500;
+}
+
+.listylist {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.linktext {
+    text-decoration: none;
+    color: $lightprimary;
+    transition: .2s;
+}
+
+.linktext:hover {
+    color: $header;
+}
+
+.cardbutton {
+    font-size: large;
+    padding-left: .75em;
+    padding-right: .75em;
+    padding-top: .25em;
+    padding-bottom: .25em;
+    color: $lightprimary;
+    background: $header;
+    border: none;
+    border-radius: 1.5em;
+    transition: .2s;
+}
+.cardbutton:hover {
+    background: $lightbg;
+    color: $header;
+}

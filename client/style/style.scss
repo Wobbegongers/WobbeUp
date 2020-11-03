@@ -7,12 +7,17 @@
 @import './components/login';
 @import './components/signup';
 @import './components/cards';
+@import './components/listing';
 
 //GLOBAL VAIRABLES 
 * {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
+}
+
+button, input, select {
+  outline: none;
 }
 //VARIABLES THAT IMPACT CLASS ON CLIENT/CONTAINER/MAIN
 .main {

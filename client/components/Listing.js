@@ -65,7 +65,7 @@ const Listing = (props) => {
     return <CardList key={index} {...el} />
   })
   return (
-    <div>
+    <div className="listylist">
       {cardList}
       <Footer />
     </div>

@@ -6,7 +6,7 @@ const Nav = (props) => {
   return (
     <div className='navBar'>
       <ul className='navUl'>
-        <li className='navLi'><Link to="/" className="navLogo">Logo/Home</Link></li>
+        <li className='navLi'><Link to="/" className="navLogo">Home</Link></li>
         <li className='navLi'><Link to="/Profile" className="navProfile">Profile</Link></li>
       </ul>
     </div>
