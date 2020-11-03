@@ -37,8 +37,6 @@ const App = (props) => {
         <Route path="/chat" component={Chat} />
 
         <Route path='/image' component={Image} />
-
-        <Footer />
       </div>
     </Router>
   );

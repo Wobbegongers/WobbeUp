@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import CardList from './CardList'
+import CardList from './CardList';
 import axios from 'axios';
-import { connect } from 'react-redux'
-import {Redirect} from 'react-router-dom'
+import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
+import Footer from '../containers/Footer';
 
 const url = 'http://localhost:3000/'
 
@@ -43,6 +44,7 @@ const Profile = (props) => {
     ?
     <div>
       {cardList}
+      <Footer />
     </div>
     :
     <Redirect 
