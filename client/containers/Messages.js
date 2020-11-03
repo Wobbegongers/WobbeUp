@@ -12,7 +12,7 @@ const Messages = (props) => {
     return ( 
         <div className="messages">
             {props.messageArray.map((ele,index) => {
-                return <Message {...props} message = {ele.text} user = {ele.user} key ={index} />
+                return <Message {...props} message = {ele.text} user = {ele.user} key ={index}/>
             })}
             {/* <Message messages = {props.messageArray}/> */}
         </div>
