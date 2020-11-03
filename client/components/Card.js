@@ -29,15 +29,15 @@ const Card = (props) => {
 
     console.log(props)
     return ( 
-        <div className='card-lising-div'>
+        <div className='CardList'>
             <div className='card-listing-seller'>
-                Seller: {Ownername}
+            <label className="cardlabel">Seller:</label> {Ownername}
             </div>
-            <ul>
-                <li>Item: {props.item.name} </li>
-                <li>Price: ${numeral(props.item.price).format('0,0')}</li>
-                <li>location: {props.item.location}</li>
-                <li>Description: {props.item.description}</li>
+            <ul className="cardcontainer">
+                <li className="cardlistitem"><label className="cardlabel">Item:</label> {props.item.name} </li>
+                <li className="cardlistitem"><label className="cardlabel">Price:</label> ${numeral(props.item.price).format('0,0')}</li>
+                <li className="cardlistitem"><label className="cardlabel">Location:</label> {props.item.location}</li>
+                <li className="cardlistitem"><label className="cardlabel">Description:</label> {props.item.description}</li>
             </ul>
             <div className="chat-container">
                 <Chat {...props}/>
