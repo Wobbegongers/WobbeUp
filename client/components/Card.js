@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import axios from 'axios';
 import Chat from './Chat'
 import {connect} from 'react-redux';
@@ -8,11 +8,30 @@ import numeral from 'numeral';
 const url ='http://localhost:3000/listing/'
 
 const Card = (props) => {
-    // console.log(props)
+
+    const [Ownername, setOwnerName] = useState('')
+
+    useEffect(() => {
+        // console.log('inside card', props.item.user_id)
+        axios.get('http://localhost:3000/listing/searchname', { params :{ user_id : props.item.user_id}} )
+        .then((res) => { 
+                if(res.status === 204) {
+                    setOwnerName('No User')
+                }
+                else{
+                    setOwnerName(res.data.username)
+                }
+            })
+        .catch(err => console.log(err))
+        
+    })
+
+
+    console.log(props)
     return ( 
         <div className='card-lising-div'>
             <div className='card-listing-seller'>
-                Seller: Ali H
+                Seller: {Ownername}
             </div>
             <ul>
                 <li>Item: {props.item.name} </li>

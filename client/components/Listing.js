@@ -4,6 +4,7 @@ import CardList from './CardList';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions'
+import Footer from '../containers/Footer'
 const url = 'http://localhost:3000/'
 /**
  * name: audi a7
@@ -66,6 +67,7 @@ const Listing = (props) => {
   return (
     <div>
       {cardList}
+      <Footer />
     </div>
   );
 }
