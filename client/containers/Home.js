@@ -34,7 +34,7 @@ const Home = (props) => {
 
     return ( 
         <div className="home-div">
-            {renderRedirect()}
+            {/* {renderRedirect()} */}
             <Main/>
         </div>
      );

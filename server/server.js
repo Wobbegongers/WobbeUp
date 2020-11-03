@@ -12,6 +12,7 @@ const io = socketio(server);
 const socketController = require("./users");
 const userRouter = require('./routes/userRouter')
 const listingRouter = require('./routes/listingRouter')
+const profileRouter = require('./routes/profileRouter')
 
 // allows us to read json
 app.use(express.json());
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, "../client/public")));
 
 app.use('/account',userRouter)
 app.use('/listing',listingRouter)
+app.use('/profile', profileRouter)
 
 io.on("connection", (socket) => {
   // console.log("New user has joined");

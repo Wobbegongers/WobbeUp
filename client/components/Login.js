@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import logo from '../public/WobbeUp.png';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 import {Redirect} from 'react-router-dom';
 
 const initialLoginState = {
@@ -63,22 +64,25 @@ const Login = (props) => {
          <div className='login-title'>
             <h1 className="logo-name">Login to WOBBE UP!</h1>
           </div>
-          <form autoComplete="off" onSubmit={submitLogin}>
-            <label> Username: </label>
-            <input
+          <form className="loginform" autoComplete="off" onSubmit={submitLogin}>
+            <label className="loginlabel"> Username: </label>
+            <input className="logininput"
               onChange={updateInfo}
               type='text'
               name='username'
               value={loginInfo.username}
             />
-            <label> Password: </label>
-            <input
+            <label className="loginlabel"> Password: </label>
+            <input className="logininput"
             onChange={updateInfo}
             type='password'
             name='password'
             value={loginInfo.password}
             /><br/>
-            <input 
+            <Link to="/signup">
+              <button className="signupbutton">Sign Up!</button>
+            </Link>
+            <input className="logininput loginsubmit"
               type="submit" 
               value="Submit"
             />
